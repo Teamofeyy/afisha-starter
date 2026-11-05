@@ -17,9 +17,7 @@ public final class MainActivity extends Activity {
     private final MeetingRepository repository = new MeetingRepository();
     private Spinner modeSpinner;
     private Button loadButton;
-    private Button retryButton;
     private View loadingPanel;
-    private View errorPanel;
     private View emptyPanel;
     private LinearLayout meetingList;
 
@@ -31,9 +29,7 @@ public final class MainActivity extends Activity {
 
         modeSpinner = findViewById(R.id.mode_spinner);
         loadButton = findViewById(R.id.load_button);
-        retryButton = findViewById(R.id.retry_button);
         loadingPanel = findViewById(R.id.loading_panel);
-        errorPanel = findViewById(R.id.error_panel);
         emptyPanel = findViewById(R.id.empty_panel);
         meetingList = findViewById(R.id.meeting_list);
 
@@ -48,28 +44,36 @@ public final class MainActivity extends Activity {
         MeetingRepository.Mode mode =
                 MeetingRepository.Mode.values()[modeSpinner.getSelectedItemPosition()];
         clearResult();
+        setLoading(true);
 
         repository.load(mode, new MeetingRepository.Callback() {
             @Override
             public void onSuccess(List<Meeting> meetings) {
-                if (!meetings.isEmpty()) {
+                setLoading(false);
+                if (meetings.isEmpty()) {
+                    emptyPanel.setVisibility(View.VISIBLE);
+                } else {
                     showMeetings(meetings);
                 }
             }
 
             @Override
             public void onError() {
-                // Практикум: показать подготовленную панель ошибки.
+                setLoading(false);
+                // Практикум: добавить сообщение об ошибке и повторную попытку.
             }
         });
     }
 
     private void clearResult() {
-        loadingPanel.setVisibility(View.GONE);
-        errorPanel.setVisibility(View.GONE);
         emptyPanel.setVisibility(View.GONE);
         meetingList.setVisibility(View.GONE);
         meetingList.removeAllViews();
+    }
+
+    private void setLoading(boolean loading) {
+        loadingPanel.setVisibility(loading ? View.VISIBLE : View.GONE);
+        loadButton.setEnabled(!loading);
     }
 
     private void showMeetings(List<Meeting> meetings) {

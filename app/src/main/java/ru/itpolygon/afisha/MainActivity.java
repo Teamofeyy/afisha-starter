@@ -17,8 +17,6 @@ public final class MainActivity extends Activity {
     private final MeetingRepository repository = new MeetingRepository();
     private Spinner modeSpinner;
     private Button loadButton;
-    private View loadingPanel;
-    private View emptyPanel;
     private LinearLayout meetingList;
 
     @Override
@@ -29,8 +27,6 @@ public final class MainActivity extends Activity {
 
         modeSpinner = findViewById(R.id.mode_spinner);
         loadButton = findViewById(R.id.load_button);
-        loadingPanel = findViewById(R.id.loading_panel);
-        emptyPanel = findViewById(R.id.empty_panel);
         meetingList = findViewById(R.id.meeting_list);
 
         ArrayAdapter<CharSequence> modes = ArrayAdapter.createFromResource(
@@ -44,36 +40,25 @@ public final class MainActivity extends Activity {
         MeetingRepository.Mode mode =
                 MeetingRepository.Mode.values()[modeSpinner.getSelectedItemPosition()];
         clearResult();
-        setLoading(true);
 
         repository.load(mode, new MeetingRepository.Callback() {
             @Override
             public void onSuccess(List<Meeting> meetings) {
-                setLoading(false);
-                if (meetings.isEmpty()) {
-                    emptyPanel.setVisibility(View.VISIBLE);
-                } else {
+                if (!meetings.isEmpty()) {
                     showMeetings(meetings);
                 }
             }
 
             @Override
             public void onError() {
-                setLoading(false);
-                // Практикум: добавить сообщение об ошибке и повторную попытку.
+                // Обработку ошибки добавим на занятии.
             }
         });
     }
 
     private void clearResult() {
-        emptyPanel.setVisibility(View.GONE);
         meetingList.setVisibility(View.GONE);
         meetingList.removeAllViews();
-    }
-
-    private void setLoading(boolean loading) {
-        loadingPanel.setVisibility(loading ? View.VISIBLE : View.GONE);
-        loadButton.setEnabled(!loading);
     }
 
     private void showMeetings(List<Meeting> meetings) {

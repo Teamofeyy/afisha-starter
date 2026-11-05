@@ -17,10 +17,6 @@ public final class MainActivity extends Activity {
     private final MeetingRepository repository = new MeetingRepository();
     private Spinner modeSpinner;
     private Button loadButton;
-    private Button retryButton;
-    private View loadingPanel;
-    private View errorPanel;
-    private View emptyPanel;
     private LinearLayout meetingList;
 
     @Override
@@ -31,10 +27,6 @@ public final class MainActivity extends Activity {
 
         modeSpinner = findViewById(R.id.mode_spinner);
         loadButton = findViewById(R.id.load_button);
-        retryButton = findViewById(R.id.retry_button);
-        loadingPanel = findViewById(R.id.loading_panel);
-        errorPanel = findViewById(R.id.error_panel);
-        emptyPanel = findViewById(R.id.empty_panel);
         meetingList = findViewById(R.id.meeting_list);
 
         ArrayAdapter<CharSequence> modes = ArrayAdapter.createFromResource(
@@ -59,15 +51,12 @@ public final class MainActivity extends Activity {
 
             @Override
             public void onError() {
-                // Практикум: показать подготовленную панель ошибки.
+                // Обработку ошибки добавим на занятии.
             }
         });
     }
 
     private void clearResult() {
-        loadingPanel.setVisibility(View.GONE);
-        errorPanel.setVisibility(View.GONE);
-        emptyPanel.setVisibility(View.GONE);
         meetingList.setVisibility(View.GONE);
         meetingList.removeAllViews();
     }

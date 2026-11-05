@@ -65,62 +65,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/loading_panel"
-            style="@style/AfishaCard"
-            android:layout_marginTop="12dp"
-            android:accessibilityLiveRegion="polite"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <ProgressBar
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:importantForAccessibility="no"
-                android:indeterminateTint="@color/accent" />
-
-            <TextView
-                style="@style/AfishaBody"
-                android:layout_width="0dp"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:text="@string/loading" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/error_panel"
-            style="@style/AfishaCard"
-            android:layout_marginTop="12dp"
-            android:accessibilityLiveRegion="polite"
-            android:background="@drawable/bg_error"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/AfishaBody"
-                android:text="@string/error"
-                android:textColor="@color/error_ink"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/retry_button"
-                style="@style/AfishaButton"
-                android:layout_marginTop="12dp"
-                android:text="@string/retry" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/empty_panel"
-            style="@style/AfishaCard"
-            android:layout_marginTop="12dp"
-            android:accessibilityLiveRegion="polite"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/AfishaBody"
-                android:text="@string/empty" />
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/meeting_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

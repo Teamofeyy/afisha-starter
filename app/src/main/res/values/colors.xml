@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="page">#F4F7FB</color>
+    <color name="card">#FFFFFF</color>
+    <color name="ink">#14233B</color>
+    <color name="muted">#52627A</color>
+    <color name="accent">#2348BD</color>
+    <color name="accent_pressed">#183593</color>
+    <color name="button_disabled">#DCE3EF</color>
+    <color name="outline">#DCE4F0</color>
+    <color name="error_surface">#FFF1F0</color>
+    <color name="error_ink">#9B2821</color>
+</resources>

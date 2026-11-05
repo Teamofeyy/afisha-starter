@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AfishaCard"
+    android:layout_marginTop="12dp">
+
+    <TextView
+        android:id="@+id/meeting_title"
+        style="@style/AfishaBody"
+        android:accessibilityHeading="true"
+        android:textColor="@color/ink"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/meeting_description"
+        style="@style/AfishaBody"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/meeting_details"
+        style="@style/AfishaBody"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/accent"
+        android:textSize="14sp" />
+</LinearLayout>

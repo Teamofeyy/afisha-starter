@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Афиша · Старт</string>
+    <string name="eyebrow">ИТ-ПОЛИГОН</string>
+    <string name="title">Афиша</string>
+    <string name="subtitle">Ближайшие встречи и практикумы</string>
+    <string name="mode_label">Ответ на следующий запрос (имитация)</string>
+    <string name="load">Загрузить</string>
+    <string name="retry">Повторить</string>
+    <string name="loading">Загружаем встречи…</string>
+    <string name="error">Не удалось загрузить встречи</string>
+    <string name="empty">Пока нет запланированных встреч</string>
+    <string-array name="response_modes">
+        <item>Обычный ответ</item>
+        <item>Медленный ответ</item>
+        <item>Ошибка</item>
+        <item>Пустой список</item>
+    </string-array>
+    <string name="mobile_title">Мобильная разработка</string>
+    <string name="mobile_description">Соберём первый экран приложения и подключим обработчик кнопки.</string>
+    <string name="mobile_details">12 ноября, 14:30 · ауд. 204</string>
+    <string name="backend_title">Бэкенд-практикум</string>
+    <string name="backend_description">Разберём запросы к API и обработку ответов сервера.</string>
+    <string name="backend_details">14 ноября, 15:00 · ауд. 310</string>
+    <string name="review_title">Разбор проектов</string>
+    <string name="review_description">Покажем прототипы и обсудим следующие шаги в командах.</string>
+    <string name="review_details">19 ноября, 13:45 · ауд. 105</string>
+</resources>
